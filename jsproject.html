@@ -1,0 +1,179 @@
+<html>
+  <head>
+  
+    <meta charset="utf-8">
+	
+    <title>js project</title>
+	
+	 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	 
+	 <style type="text/css">
+	 
+	 body{
+	 
+	      margin:0;
+		  padding:0;
+		  opacity:0.9;
+	 }
+	 
+	 .main{
+	 
+	      border:1px solid black;
+		  width:100%;
+		  height:100%;
+		  background: linear-gradient(to right ,#fa057f,#eb34d0 );
+		  display:flex;
+		  align-items:center;
+	      justify-content:center;
+	 
+	 }
+	 
+	 .box{
+	 
+	     border:2px solid black;
+		 width:400px;
+		 height:550px;
+		 background-color:white;
+		 font-size:20px;
+		 border-radius: 20px 20px 20px 20px ;
+	 }
+	 
+	 p,select,button{
+	 
+	     margin-left:20px;
+	 }
+	 
+	 .text{
+	     
+		  border-radius: 20px 20px 0 0 ;
+		  width:100%;
+		  height:50px;
+		  line-height:50px;
+		  text-align:center;
+          background-color:red;
+	      font-size:30px;
+	 }
+	 
+	 input,select,button{
+	 
+	      border-radius:5px;
+		  font-size:15px;
+	 }
+	 
+	 button{
+	    
+		background-color:black;
+		color:white;
+	    font-size:23px;
+		margin-top:20px;
+	 }
+	 
+	 #finalResult{
+	 
+		height:100px;
+		margin-top:30px;
+		display:flex;
+		align-items:center;
+	    justify-content:center;
+	 
+	 }
+	 
+	 </style>
+	
+	</head>
+  <body>
+     
+	<div class="main">
+	
+	  <div class="box" id="box">
+	  
+	    <div class="text">TIP CALCULATOR</div>
+		
+		<p> How much was your bill ? </p>
+		
+		<p> Rs. 
+		
+		  <input type="number" id="billMoney" min="1">
+		  
+		</p>
+		
+		
+		<p> How was your service ? </p>
+		
+		  <select id="service">
+		  
+		       <option value=0 selected>~select here~</option>
+		       <option value=0.20 >20%-EXCELLENT</option>
+		       <option value=0.10>10%-GOOD</option>
+		       <option value=0.05>5%-OK</option>
+		  
+		  </select>
+		
+		<p> How many pepple are sharing the bill ? </p>
+		
+		<p> 
+		
+		  <input type="number" id="peoples" min="1" >peoples.
+		  
+		</p>
+		
+		<center><button id="calculate">CALCULATE</button></center>
+		
+		<div id="finalResult">
+		  
+		   <p id ="text1"><big>TIP AMOUNT Rs-</big></p>
+		   <u><p id ="text2"><big>  </big></p></u>
+		   
+		   <p id ="text3"><big>each<big></p>
+		   
+		   
+		
+		<div>
+	  
+	  </div>
+	
+	</div>
+	 
+   
+ <script type="text/javascript">
+       
+	    document.getElementById("finalResult").style.display="none" ;
+		
+	    document.getElementById("box").style.height="450px" ;
+	   
+	   document.getElementById("calculate").onclick = function () {
+	   
+	     var billAmount = document.getElementById("billMoney").value;
+		 
+	     var  service= document.getElementById("service").value;
+		 
+		 var numberOfPeople = document.getElementById("peoples").value;
+		 
+		 if( billAmount == 0 || service == 0 ) {
+		 
+		    alert( "please provide correct informations !!!" ) ;
+			
+			 document.getElementById("box").style.height="450px" ;
+			 
+			 document.getElementById("finalResult").style.display="none" ;
+			
+		 }
+		 else 
+		 {		 
+		   var total = ((billAmount)*(service))/  numberOfPeople ;
+		 
+		   total = Math.round(total) ;
+		   
+		     document.getElementById("box").style.height="550px" ;
+			 
+		    document.getElementById("finalResult").style.display="flex" ;
+     
+	       document.getElementById("text2").innerHTML = total ;
+		   
+		 }
+	 }
+	 
+ </script>
+ 
+  </body>
+</html>
